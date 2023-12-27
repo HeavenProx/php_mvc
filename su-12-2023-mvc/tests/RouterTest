@@ -1,0 +1,69 @@
+<?php 
+
+use PHPUnit\Framework\TestCase;
+use App\Routing\Router;
+use App\Routing\Route;
+use Psr\Container\ContainerInterface;
+
+class RouterTest extends TestCase
+{
+    public function testAddRoute()
+    {
+        // Crée un conteneur mock (à l'aide de PHPUnit)
+        $containerMock = $this->createMock(ContainerInterface::class);
+
+        // Crée un routeur en injectant le conteneur mock
+        $router = new Router($containerMock);
+
+        // Crée une route et l'ajoute au routeur
+        $route = new Route('', 'name', 'GET', \stdClass::class, 'subscribe');
+        $result = $router->addRoute($route);
+
+        // Vérifie que la méthode retourne $this (c'est-à-dire l'instance du routeur)
+        $this->assertInstanceOf(Router::class, $result);
+
+        // Vérifie que la route a bien été ajoutée
+        $routes = $router->getRoutes();
+        $this->assertCount(1, $routes);
+        $this->assertEquals($route, $routes[0]);
+    }
+
+    public function testGetRoute()
+    {
+        // Crée un conteneur mock (à l'aide de PHPUnit)
+        $containerMock = $this->createMock(ContainerInterface::class);
+
+        // Crée un routeur en injectant le conteneur mock
+        $router = new Router($containerMock);
+
+        // Crée une route et l'ajoute au routeur
+        $route = new Route('/example', 'name', 'GET', \stdClass::class, 'subscribe');
+        $router->addRoute($route);
+
+        // Va chercher la route 
+        $result = $router->getRoute('/example', 'GET');
+
+        // Compare les valeurs 
+        $this->assertInstanceOf(Route::class, $result);
+        $this->assertEquals($route, $result);
+    }
+
+    public function testGetRoutes()
+    {
+        // Crée un conteneur mock (à l'aide de PHPUnit)
+        $containerMock = $this->createMock(ContainerInterface::class);
+
+        // Crée un routeur en injectant le conteneur mock
+        $router = new Router($containerMock);
+
+        // Crée une route et l'ajoute au routeur
+        $route = new Route('/exemple2', 'name', 'GET', \stdClass::class,'subscribe');
+        $router->addRoute($route);
+
+        // Va chercher la route 
+        $result = $router->getRoutes();
+
+        // Compare les valeurs (int car il va chercher dans le array)
+        $this->assertCount(1, $result);
+    }
+}

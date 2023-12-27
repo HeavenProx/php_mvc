@@ -1,0 +1,39 @@
+<?php
+
+// tests/ContainerTest.php
+
+use App\DependencyInjection\ServiceNotFoundException;
+use PHPUnit\Framework\TestCase;
+use App\DependencyInjection\Container;
+
+class ContainerTest extends TestCase
+{
+
+    public function testContainerSetMethod()
+    {
+        // Instancie la classe container et la classe generique
+        $service = new \stdClass();
+        $container = new Container();
+
+        // Associe la key Test a la valeur service
+        $container->set('Test', $service);
+
+        // Vérifie que l'instance obtenue est la même que celle que nous avons ajoutée
+        $this->assertSame($container->get('Test'), $service);
+    }
+
+    public function testContainerGetMethod()
+    {
+        // Instancie la classe container et affecte une variable
+        $container = new Container();
+        $nonExistentServiceId = 'nonExistentService';
+
+        // Verifie qu'il leve l'exception et qu'elle correpond a la chaine
+        $expectedErrorMessage = "Unable to get service in container : Service $nonExistentServiceId not found";
+        $this->expectException(ServiceNotFoundException::class);
+        $this->expectExceptionMessage($expectedErrorMessage);
+
+        // Declenche l'appel a la methode
+        $container->get($nonExistentServiceId);
+    }
+}

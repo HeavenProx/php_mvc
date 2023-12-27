@@ -1,0 +1,27 @@
+<?php
+
+// src/Controller/ExempleController.php
+/*
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class ExempleController extends AbstractController
+{
+
+    public function exempleAction(Request $request): Response
+    {
+        // Logique métier ou traitement de la requête
+        $parametreGet = $request->query->get('parametre_get');
+        $parametrePost = $request->request->get('parametre_post');
+        $resultat = 'Le paramètre GET est : ' . $parametreGet;
+        $resultat .= '<br>Le paramètre POST est : ' . $parametrePost;
+
+        // Utilisation de la classe Response pour construire la réponse
+        $response = new Response($resultat);
+
+        return $response;
+    }
+}
