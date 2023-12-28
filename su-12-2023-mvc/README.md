@@ -56,7 +56,7 @@ Le projet intègre des tests unitaires pour garantir le bon fonctionnement de ch
     On peut conclure que tout les tests (les 5) ont été réussi avec succès !
     Nos méthodes se comporte comme prévues 
     
-## Fin des tests unitaires
+## Fin -> tests unitaires
 
 
 ## Twig : définition d'une extension pour créer des URL dynamiquement
@@ -69,5 +69,5 @@ Un peu compliqué d'expliquer précisemment ici :'|
 3. Définition des routes qui "appeleront" leur méthode (leur action), la méthode nous renvoie l'url de notre template correspondant ->  IndexControlleur.php
 4. Appelle de la fonction 'path' dans les liens de notre navbar en précisant la route spécifique -> nav.html.twig
 
-## Fin de la définition d'une extension pour créer des URL dynamiquement
+## Fin -> Twig : définition d'une extension pour créer des URL dynamiquement
 
