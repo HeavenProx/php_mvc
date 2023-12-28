@@ -71,7 +71,11 @@ $container
 // --- ROUTER ------------------------------------------------
 $router = new Router($container);
 $router->registerRoutes();
+// -----------------------------------------------------------
 
+// --- TWIG EXTENSION ----------------------------------------
+// Lors de l'ajout de l'extension à notre environnement Twig
+// l'objet $routeur est ajoute pour pouvoir generer les url 
 $twig->addExtension(new PathExtension($router));
 // -----------------------------------------------------------
 

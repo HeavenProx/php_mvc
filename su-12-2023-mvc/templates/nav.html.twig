@@ -1,16 +1,20 @@
 <nav>
   <ul>
     <li>
+      <!-- Lien appelant notre fonction 'path' en précisant la fonction 'home', l'url de la route est donc return dans notre href -->
       <a href="{{ path('home') }}">Accueil</a>
     </li>
     <li>
+      <!-- Lien appelant notre fonction 'path' en précisant la fonction 'contact', l'url de la route est donc return dans notre href -->
       <a href="{{ path('contact') }}">Contact</a>
     </li>
     <li>
+    <!-- Lien appelant notre fonction 'path' en précisant la fonction 'product_list', l'url de la route est donc return dans notre href -->
       <a href="{{ path('product_list') }}">Produits</a>
     </li>
     <li>
-      <a href="/newsletter/subscribe">Newsletter</a>
+      <!-- Lien appelant notre fonction 'path' en précisant la fonction 'newsletter', l'url de la route est donc return dans notre href -->
+      <a href="{{ path('newsletter') }}">Newsletter</a>
     </li>
   </ul>
 </nav>

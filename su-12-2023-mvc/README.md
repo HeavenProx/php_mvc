@@ -61,8 +61,13 @@ Le projet intègre des tests unitaires pour garantir le bon fonctionnement de ch
 
 ## Twig : définition d'une extension pour créer des URL dynamiquement
 
-modification :
--> index.php au niveau du router
--> PathExtension.php
--> nav.html.twig
--> IndexController.php pour indiquer la route et template twig
+J'ai mis des commentaires dans tout les morceaux de code pour faciliter la compréhension.
+Un peu compliqué d'expliquer précisemment ici :'|
+
+1. Création de notre extension que l'on integrera à Twig : 'path' -> PathExtension.php
+2. Ajout de notre extension à l'environnement Twig -> ligne 77 dans index.php
+3. Définition des routes qui "appeleront" leur méthode (leur action), la méthode nous renvoie l'url de notre template correspondant ->  IndexControlleur.php
+4. Appelle de la fonction 'path' dans les liens de notre navbar en précisant la route spécifique -> nav.html.twig
+
+## Fin de la définition d'une extension pour créer des URL dynamiquement
+
