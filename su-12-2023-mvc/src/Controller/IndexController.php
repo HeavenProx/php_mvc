@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends AbstractController
 {
@@ -15,7 +16,7 @@ class IndexController extends AbstractController
         return $this->twig->render('index/home.html.twig');
     }
 
-    // La route '/contact' appelle la foonction 'contact' ci dessous
+    // La route '/contact' appelle la fonction 'contact' ci dessous
     #[Route('/contact', 'contact')]
     public function contact(): string
     {
@@ -23,7 +24,7 @@ class IndexController extends AbstractController
         return $this->twig->render('index/contact.html.twig');
     }
 
-    // La route '/products/list' appelle la foonction 'product_list' ci dessous
+    // La route '/products/list' appelle la fonction 'product_list' ci dessous
     #[Route('/products/list', 'product_list')]
     public function product_list(): string
     {
@@ -31,7 +32,7 @@ class IndexController extends AbstractController
         return $this->twig->render('products/list.html.twig');
     }
 
-    // La route '/newsletter/subscribe' appelle la foonction 'newsletter' ci dessous
+    // La route '/newsletter/subscribe' appelle la fonction 'newsletter' ci dessous
     #[Route('/newsletter/subscribe', 'newsletter')]
     public function newsletter(): string
     {
